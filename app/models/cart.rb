@@ -4,7 +4,6 @@ class Cart < ActiveRecord::Base
   has_many :items, through: :line_items
 
   def total
-
     prices = self.line_items.map do |line_item|
       Item.find(line_item.item_id).price * line_item.quantity
     end
